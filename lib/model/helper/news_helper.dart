@@ -1,29 +1,67 @@
 import 'package:thebrocolli/model/core/news.dart';
 
 class NewsHelper {
-  static List<News> featuredNews =
-      featuredNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
-  static List<News> breakingNews =
-      breakingNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
+  static List<News> featuredNews = featuredNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
+  static List<News> breakingNews = breakingNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
 
-  static List<News> recomendationNews =
-      recomendationNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
+  static List<News> recomendationNews = recomendationNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
 
-  static List<News> allCategoriesNews =
-      allCategoriesNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
+  static List<News> allCategoriesNews = allCategoriesNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
 
-  static List<News> searchNews =
-      searchNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
+  static List<News> searchNews = searchNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
 
-  static List<News> bookmarkedNews =
-      bookmarkedNewsRawData.map((data) => News(title: data['title'], photo: data['photo'], date: data['date'], author: data['author'], description: data['description'])).toList();
+  static List<News> bookmarkedNews = bookmarkedNewsRawData
+      .map((data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          description: data['description']))
+      .toList();
 }
 
 var featuredNewsRawData = [
   {
-    'title': '‘Space Jam: A New Legacy’ Takes on ‘Black Widow’ at the Box Office.',
+    'title':
+        '‘Space Jam: A New Legacy’ Takes on ‘Black Widow’ at the Box Office.',
     'photo': 'assets/images/spacejam.jpg',
-    'description': r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
+    'description':
+        r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
 
 It’ll be a showdown between Disney’s and Marvel’s “Black Widow” and the Warner Bros. sequel “Space Jam: A New Legacy” at the domestic box office, with Scarlett Johansson’s superhero adventure poised to reclaim the top spot.
 
@@ -35,9 +73,11 @@ In a rare moment of streaming revenue transparency, Disney revealed last weekend
     'author': 'anon anon'
   },
   {
-    'title': 'How a Pivotal Scene in ‘The Green Knight’ Took Over a Year to Edit.',
+    'title':
+        'How a Pivotal Scene in ‘The Green Knight’ Took Over a Year to Edit.',
     'photo': 'assets/images/green knight.jpg',
-    'description': r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
+    'description':
+        r'''Black Widow has faced down mad titans and genocidal robots, but can the veteran Avenger take down a band of scrappy Looney Toons?
 
 It’ll be a showdown between Disney’s and Marvel’s “Black Widow” and the Warner Bros. sequel “Space Jam: A New Legacy” at the domestic box office, with Scarlett Johansson’s superhero adventure poised to reclaim the top spot.
 
@@ -55,11 +95,11 @@ var breakingNewsRawData = [
     'title': 'Covid map: Coronavirus cases, deaths, vaccinations by country.',
     'photo': 'assets/images/vaccin.jpg',
     'description':
-        r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
-        
-Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci phasellus egestas. Ultrices sagittis orci a scelerisque purus semper eget duis. Suspendisse faucibus interdum posuere lorem ipsum dolor sit amet. Ultricies lacus sed turpis tincidunt id aliquet risus feugiat in. Nisl suscipit adipiscing bibendum est ultricies integer quis. Vestibulum lorem sed risus ultricies. Lectus vestibulum mattis ullamcorper velit sed ullamcorper morbi tincidunt ornare. Lacus sed viverra tellus in hac habitasse platea dictumst vestibulum. Volutpat consequat mauris nunc congue nisi. Nisl condimentum id venenatis a condimentum.''',
-    'date': 'Jul 14, 2021 ',
-    'author': 'anon anon'
+        r'''Two cases of Omicron variant have been detected through INSACOG in Karnataka, the Union Health Minister said on Thursday, while asking people not to panic but follow Covid-appropriate behaviour and get vaccinated without delay.
+
+The potentially more contagious Omicron variant was first reported to the WHO from South Africa on November 24, and has been designated as a “Variant of Concern”.''',
+    'date': 'Dec 02, 2021 ',
+    'author': 'Indian Express'
   },
   {
     'title': "Indonesia overtakes India as Asia's new Covid-19 epicenter.",
@@ -158,7 +198,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Software vendor caught up in ransomware attack obtains decryptor key",
+    'title':
+        "Software vendor caught up in ransomware attack obtains decryptor key",
     'photo': 'assets/images/ransom.JPG',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
@@ -168,7 +209,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Add this superfood to your diet to help manage weight and lower blood pressure",
+    'title':
+        "Add this superfood to your diet to help manage weight and lower blood pressure",
     'photo': 'assets/images/healthyfood.JPG',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
@@ -241,7 +283,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Add this superfood to your diet to help manage weight and lower blood pressure",
+    'title':
+        "Add this superfood to your diet to help manage weight and lower blood pressure",
     'photo': 'assets/images/healthyfood.JPG',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.
@@ -251,7 +294,8 @@ Malesuada proin libero nunc consequat interdum varius sit. Sollicitudin ac orci 
     'author': 'anon anon'
   },
   {
-    'title': "Software vendor caught up in ransomware attack obtains decryptor key",
+    'title':
+        "Software vendor caught up in ransomware attack obtains decryptor key",
     'photo': 'assets/images/ransom.JPG',
     'description':
         r'''Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quisque non tellus orci ac auctor. Diam maecenas ultricies mi eget. Varius sit amet mattis vulputate enim nulla. Consectetur adipiscing elit duis tristique sollicitudin. Tellus mauris a diam maecenas sed enim ut sem. Feugiat in fermentum posuere urna nec. Quis imperdiet massa tincidunt nunc pulvinar sapien et ligula ullamcorper. Sed felis eget velit aliquet. Nunc sed blandit libero volutpat sed. Egestas congue quisque egestas diam in arcu cursus euismod quis. Scelerisque eu ultrices vitae auctor eu augue ut. Blandit aliquam etiam erat velit scelerisque in dictum non consectetur.

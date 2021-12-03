@@ -72,12 +72,13 @@ class _WelcomePageState extends State<WelcomePage> {
                       Container(
                         margin: EdgeInsets.only(top: 18),
                         child: Text(
-                          'Free Flutter News App \nStarter Template',
+                          'America\'s Least Reliable News Source App, built with Flutter.',
                           style: TextStyle(
-                              color: Colors.white,
-                              height: 150 / 100,
-                              fontWeight: FontWeight.w500,
-                              fontSize: 16),
+                            color: Colors.white,
+                            height: 150 / 100,
+                            fontWeight: FontWeight.w500,
+                            fontSize: 16,
+                          ),
                           textAlign: TextAlign.center,
                         ),
                       )
