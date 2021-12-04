@@ -74,18 +74,46 @@ class _HomePageState extends State<HomePage> {
               children: [
                 Container(
                   height: 320,
-                  child: ListView.separated(
-                    physics: BouncingScrollPhysics(),
-                    controller: _featuredNewsScrollController,
-                    padding: EdgeInsets.only(left: 16),
-                    scrollDirection: Axis.horizontal,
-                    itemCount: featuredNewsData.length,
-                    separatorBuilder: (context, index) {
-                      return SizedBox(width: 16);
-                    },
-                    itemBuilder: (context, index) {
-                      return FeaturedNewsCard(
-                        data: featuredNewsData[index],
+                  child: FutureBuilder<QuerySnapshot>(
+                    future: news.get(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (!snapshot.hasData) {
+                        return Text('Loading...');
+                      }
+
+                      List<News> data = [];
+                      snapshot.data.docs.forEach((a) => {
+                            if (a['trending'] == true)
+                              {
+                                data.add(
+                                  (News(
+                                      title: a['title'],
+                                      description: a['description'],
+                                      photo: a['photo'],
+                                      author: a['author'],
+                                      date: a['date'],
+                                      trending: a['trending'])),
+                                )
+                              }
+                          });
+
+                      return ListView.separated(
+                        physics: BouncingScrollPhysics(),
+                        controller: _featuredNewsScrollController,
+                        padding: EdgeInsets.only(left: 16),
+                        scrollDirection: Axis.horizontal,
+                        // itemCount: featuredNewsData.length,
+                        itemCount: data.length,
+                        separatorBuilder: (context, index) {
+                          return SizedBox(width: 16);
+                        },
+                        itemBuilder: (context, index) {
+                          return FeaturedNewsCard(
+                            // data: featuredNewsData[index],
+                            data: data[index],
+                          );
+                        },
                       );
                     },
                   ),
@@ -204,47 +232,48 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.only(top: 16, bottom: 16),
                   width: MediaQuery.of(context).size.width,
                   child: FutureBuilder<QuerySnapshot>(
-                      future: news.get(),
-                      builder: (BuildContext context,
-                          AsyncSnapshot<QuerySnapshot> snapshot) {
-                        if (!snapshot.hasData) {
-                          return Text('Loading...');
-                        }
+                    future: news.get(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<QuerySnapshot> snapshot) {
+                      if (!snapshot.hasData) {
+                        return Text('Loading...');
+                      }
 
-                        // List<Map<String, dynamic>> data =
-                        //     snapshot.data.docs as List<Map<String, dynamic>>;
+                      // List<Map<String, dynamic>> data =
+                      //     snapshot.data.docs as List<Map<String, dynamic>>;
 
-                        List<News> data = [];
-                        snapshot.data.docs.forEach((a) => data.add(
-                              (News(
-                                  title: a['title'],
-                                  description: a['description'],
-                                  photo: a['photo'],
-                                  author: a['author'],
-                                  date: a['date'],
-                                  trending: a['trending'])),
-                            ));
+                      List<News> data = [];
+                      snapshot.data.docs.forEach((a) => data.add(
+                            (News(
+                                title: a['title'],
+                                description: a['description'],
+                                photo: a['photo'],
+                                author: a['author'],
+                                date: a['date'],
+                                trending: a['trending'])),
+                          ));
 
-                        // data.forEach((n) {
-                        //   print(n.title);
-                        // });
+                      // data.forEach((n) {
+                      //   print(n.title);
+                      // });
 
-                        return ListView.separated(
-                          shrinkWrap: true,
-                          // itemCount: recomendationNewsData.length,
-                          itemCount: data.length,
-                          // physics: NeverScrollableScrollPhysics(),
-                          separatorBuilder: (context, index) {
-                            return SizedBox(height: 16);
-                          },
-                          itemBuilder: (context, index) {
-                            return NewsTile(
-                              data: data[index],
-                              // data: recomendationNewsData[index],
-                            );
-                          },
-                        );
-                      }),
+                      return ListView.separated(
+                        shrinkWrap: true,
+                        // itemCount: recomendationNewsData.length,
+                        itemCount: data.length,
+                        // physics: NeverScrollableScrollPhysics(),
+                        separatorBuilder: (context, index) {
+                          return SizedBox(height: 16);
+                        },
+                        itemBuilder: (context, index) {
+                          return NewsTile(
+                            data: data[index],
+                            // data: recomendationNewsData[index],
+                          );
+                        },
+                      );
+                    },
+                  ),
                 )
               ],
             ),
