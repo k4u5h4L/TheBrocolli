@@ -1,6 +1,25 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:thebrocolli/model/core/news.dart';
 
 class NewsHelper {
+  static Future<List<News>> fetchNews() async {
+    var rawNews = await FirebaseFirestore.instance.collection('news').get();
+
+    List<News> news = rawNews.docs.map(
+      (data) => News(
+          title: data['title'],
+          photo: data['photo'],
+          date: data['date'],
+          author: data['author'],
+          trending: data['trending'],
+          description: data['description']),
+    );
+
+    return news;
+  }
+
   static List<News> featuredNews = featuredNewsRawData
       .map((data) => News(
           title: data['title'],

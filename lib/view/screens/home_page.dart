@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:thebrocolli/model/core/news.dart';
 import 'package:thebrocolli/model/helper/news_helper.dart';
 import 'package:thebrocolli/route/slide_page_route.dart';
@@ -20,7 +23,15 @@ class _HomePageState extends State<HomePage> {
   ScrollController _featuredNewsScrollController = ScrollController();
   List<News> featuredNewsData = NewsHelper.featuredNews;
   List<News> breakingNewsData = NewsHelper.breakingNews;
+  CollectionReference news = FirebaseFirestore.instance.collection('news');
   List<News> recomendationNewsData = NewsHelper.recomendationNews;
+
+  // @override
+  // void initState() {
+  //   super.initState();
+
+  //   // news = NewsHelper.fetchNews();
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -34,7 +45,11 @@ class _HomePageState extends State<HomePage> {
         onPressedLeading: () {
           Scaffold.of(context).openDrawer();
         },
-        title: SvgPicture.asset('assets/icons/appname.svg'),
+        // title: SvgPicture.asset('assets/icons/appname.svg'),
+        title: Text(
+          'TheBrocolli',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
         profilePicture: Image.asset(
           'assets/images/pp.png',
           fit: BoxFit.cover,
@@ -83,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Featured news',
+                        'Trending news',
                         style: TextStyle(color: Colors.white.withOpacity(0.6)),
                       ),
                       ScrollIndicator(
@@ -91,8 +106,12 @@ class _HomePageState extends State<HomePage> {
                         height: 6,
                         width: 30,
                         indicatorWidth: 20,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(10), color: Colors.white.withOpacity(0.3)),
-                        indicatorDecoration: BoxDecoration(color: Colors.white.withOpacity(0.2), borderRadius: BorderRadius.circular(10)),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(10),
+                            color: Colors.white.withOpacity(0.3)),
+                        indicatorDecoration: BoxDecoration(
+                            color: Colors.white.withOpacity(0.2),
+                            borderRadius: BorderRadius.circular(10)),
                       ),
                     ],
                   ),
@@ -101,67 +120,71 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
           // section 2 - Breaking News
-          Container(
-            padding: EdgeInsets.symmetric(vertical: 16),
-            width: MediaQuery.of(context).size.width,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Text(
-                        'Breaking News',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w600,
-                          fontFamily: 'inter',
-                        ),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          Navigator.of(context).push(SlidePageRoute(child: BreakingNewsPage()));
-                        },
-                        child: Text(
-                          'view more',
-                          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w400),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          primary: Colors.transparent,
-                          shadowColor: Colors.transparent,
-                          onPrimary: Colors.grey,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Container(
-                  height: 200,
-                  margin: EdgeInsets.only(top: 6),
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    shrinkWrap: true,
-                    padding: EdgeInsets.symmetric(horizontal: 16),
-                    itemCount: breakingNewsData.length,
-                    physics: BouncingScrollPhysics(),
-                    separatorBuilder: (context, index) {
-                      return SizedBox(
-                        width: 13,
-                      );
-                    },
-                    itemBuilder: (context, index) {
-                      return BreakingNewsCard(
-                        data: breakingNewsData[index],
-                      );
-                    },
-                  ),
-                )
-              ],
-            ),
-          ),
+          // ###################################################################
+          // Container(
+          //   padding: EdgeInsets.symmetric(vertical: 16),
+          //   width: MediaQuery.of(context).size.width,
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       Padding(
+          //         padding: EdgeInsets.symmetric(horizontal: 16),
+          //         child: Row(
+          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          //           children: [
+          //             Text(
+          //               'Breaking News',
+          //               style: TextStyle(
+          //                 fontSize: 20,
+          //                 fontWeight: FontWeight.w600,
+          //                 fontFamily: 'inter',
+          //               ),
+          //             ),
+          //             ElevatedButton(
+          //               onPressed: () {
+          //                 Navigator.of(context)
+          //                     .push(SlidePageRoute(child: BreakingNewsPage()));
+          //               },
+          //               child: Text(
+          //                 'view more',
+          //                 style: TextStyle(
+          //                     color: Colors.black, fontWeight: FontWeight.w400),
+          //               ),
+          //               style: ElevatedButton.styleFrom(
+          //                 primary: Colors.transparent,
+          //                 shadowColor: Colors.transparent,
+          //                 onPrimary: Colors.grey,
+          //               ),
+          //             ),
+          //           ],
+          //         ),
+          //       ),
+          //       Container(
+          //         height: 200,
+          //         margin: EdgeInsets.only(top: 6),
+          //         child: ListView.separated(
+          //           scrollDirection: Axis.horizontal,
+          //           shrinkWrap: true,
+          //           padding: EdgeInsets.symmetric(horizontal: 16),
+          //           itemCount: breakingNewsData.length,
+          //           physics: BouncingScrollPhysics(),
+          //           separatorBuilder: (context, index) {
+          //             return SizedBox(
+          //               width: 13,
+          //             );
+          //           },
+          //           itemBuilder: (context, index) {
+          //             return BreakingNewsCard(
+          //               data: breakingNewsData[index],
+          //             );
+          //           },
+          //         ),
+          //       )
+          //     ],
+          //   ),
+          // ),
+          // ###################################################################
           // section 3 - Based on Your Reading History
           Container(
             width: MediaQuery.of(context).size.width,
@@ -173,26 +196,55 @@ class _HomePageState extends State<HomePage> {
                 Container(
                   margin: EdgeInsets.only(top: 8),
                   child: Text(
-                    'Based on your reading history...',
+                    'Your daily read',
                     style: TextStyle(color: Colors.grey),
                   ),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 16, bottom: 16),
                   width: MediaQuery.of(context).size.width,
-                  child: ListView.separated(
-                    shrinkWrap: true,
-                    itemCount: recomendationNewsData.length,
-                    physics: NeverScrollableScrollPhysics(),
-                    separatorBuilder: (context, index) {
-                      return SizedBox(height: 16);
-                    },
-                    itemBuilder: (context, index) {
-                      return NewsTile(
-                        data: recomendationNewsData[index],
-                      );
-                    },
-                  ),
+                  child: FutureBuilder<QuerySnapshot>(
+                      future: news.get(),
+                      builder: (BuildContext context,
+                          AsyncSnapshot<QuerySnapshot> snapshot) {
+                        if (!snapshot.hasData) {
+                          return Text('Loading...');
+                        }
+
+                        // List<Map<String, dynamic>> data =
+                        //     snapshot.data.docs as List<Map<String, dynamic>>;
+
+                        List<News> data = [];
+                        snapshot.data.docs.forEach((a) => data.add(
+                              (News(
+                                  title: a['title'],
+                                  description: a['description'],
+                                  photo: a['photo'],
+                                  author: a['author'],
+                                  date: a['date'],
+                                  trending: a['trending'])),
+                            ));
+
+                        // data.forEach((n) {
+                        //   print(n.title);
+                        // });
+
+                        return ListView.separated(
+                          shrinkWrap: true,
+                          // itemCount: recomendationNewsData.length,
+                          itemCount: data.length,
+                          // physics: NeverScrollableScrollPhysics(),
+                          separatorBuilder: (context, index) {
+                            return SizedBox(height: 16);
+                          },
+                          itemBuilder: (context, index) {
+                            return NewsTile(
+                              data: data[index],
+                              // data: recomendationNewsData[index],
+                            );
+                          },
+                        );
+                      }),
                 )
               ],
             ),
