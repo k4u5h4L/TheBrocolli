@@ -5,7 +5,11 @@ import 'package:flutter_svg/flutter_svg.dart';
 class SearchAppBar extends StatefulWidget implements PreferredSizeWidget {
   TextEditingController searchInputController;
   Function searchPressed;
-  SearchAppBar({@required this.searchInputController, this.searchPressed});
+  Function searchChanged;
+  SearchAppBar(
+      {@required this.searchInputController,
+      this.searchPressed,
+      this.searchChanged});
   @override
   Size get preferredSize => const Size.fromHeight(60);
 
@@ -30,18 +34,21 @@ class _SearchAppBarState extends State<SearchAppBar> {
         ),
         child: TextField(
           controller: widget.searchInputController,
-          onChanged: (value) {
-            print(widget.searchInputController.text);
-            setState(() {});
-          },
+          // onChanged: (value) {
+          //   print(widget.searchInputController.text);
+          //   setState(() {});
+          // },
+          onChanged: widget.searchChanged,
           style: TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
           maxLines: 1,
           decoration: InputDecoration(
             prefixIcon: Visibility(
-              visible: (widget.searchInputController.text.isEmpty) ? true : false,
+              visible:
+                  (widget.searchInputController.text.isEmpty) ? true : false,
               child: Container(
                 margin: EdgeInsets.only(left: 10, right: 12),
-                child: SvgPicture.asset('assets/icons/Search.svg', color: Colors.white),
+                child: SvgPicture.asset('assets/icons/Search.svg',
+                    color: Colors.white),
               ),
             ),
             prefixIconConstraints: BoxConstraints(maxHeight: 20),

@@ -21,10 +21,10 @@ class DiscoverPage extends StatefulWidget {
 
 class _DiscoverPageState extends State<DiscoverPage>
     with TickerProviderStateMixin {
-  ScrollController _featuredVideoNewsCardScrollController = ScrollController();
+  // ScrollController _featuredVideoNewsCardScrollController = ScrollController();
   TabController _categoryTabController;
   List<VideoNews> featuredVideoNews = VideoNewsHelper.featuredVideoNews;
-  List<News> allCategoriesNews = NewsHelper.allCategoriesNews;
+  // List<News> allCategoriesNews = NewsHelper.allCategoriesNews;
   CollectionReference news = FirebaseFirestore.instance.collection('news');
 
   List<String> categories = ['All categories', 'Covid', 'Software', 'India'];
