@@ -4,11 +4,11 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:thebrocolli/model/core/news.dart';
-import 'package:thebrocolli/model/helper/news_helper.dart';
+// import 'package:thebrocolli/model/helper/news_helper.dart';
 import 'package:thebrocolli/route/slide_page_route.dart';
-import 'package:thebrocolli/view/screens/breaking_news_page.dart';
+// import 'package:thebrocolli/view/screens/breaking_news_page.dart';
 import 'package:thebrocolli/view/screens/profile_page.dart';
-import 'package:thebrocolli/view/widgets/breaking_news_card.dart';
+// import 'package:thebrocolli/view/widgets/breaking_news_card.dart';
 import 'package:thebrocolli/view/widgets/custom_app_bar.dart';
 import 'package:thebrocolli/view/widgets/featured_news_card.dart';
 import 'package:thebrocolli/view/widgets/news_tile.dart';
@@ -21,17 +21,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ScrollController _featuredNewsScrollController = ScrollController();
-  // List<News> featuredNewsData = NewsHelper.featuredNews;
-  // List<News> breakingNewsData = NewsHelper.breakingNews;
   CollectionReference news = FirebaseFirestore.instance.collection('news');
-  // List<News> recomendationNewsData = NewsHelper.recomendationNews;
-
-  // @override
-  // void initState() {
-  //   super.initState();
-
-  //   // news = NewsHelper.fetchNews();
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -50,10 +40,11 @@ class _HomePageState extends State<HomePage> {
           'TheBrocolli',
           style: TextStyle(color: Colors.white, fontSize: 20),
         ),
-        profilePicture: Image.asset(
-          'assets/images/pp.png',
-          fit: BoxFit.cover,
-        ),
+        // profilePicture: Image.asset(
+        //   'assets/images/pp.png',
+        //   fit: BoxFit.cover,
+        // ),
+        profilePicture: Icon(Icons.person),
         onPressedProfilePicture: () {
           Navigator.of(context).push(SlidePageRoute(child: ProfilePage()));
         },

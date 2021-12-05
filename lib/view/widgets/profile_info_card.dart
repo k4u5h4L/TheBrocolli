@@ -23,9 +23,10 @@ class ProfileInfoCard extends StatelessWidget {
             Container(
               width: 48,
               height: 48,
-              decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(100)),
+              decoration: BoxDecoration(
+                  color: Colors.grey, borderRadius: BorderRadius.circular(100)),
               margin: EdgeInsets.only(right: 20),
-              child: Image.asset('assets/images/pp.png'),
+              child: Icon(Icons.person),
             ),
             Expanded(
               child: Column(
@@ -58,23 +59,24 @@ class ProfileInfoCard extends StatelessWidget {
                 ],
               ),
             ),
-            ElevatedButton(
-              onPressed: () {},
-              child: Text(
-                'Upgrade',
-                style: TextStyle(
-                  color: Colors.grey,
-                  fontWeight: FontWeight.w500,
-                ),
-              ),
-              style: ElevatedButton.styleFrom(
-                  primary: Color(0xFF252525),
-                  textStyle: TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
-                  padding: EdgeInsets.symmetric(
-                    vertical: 14,
-                    horizontal: 16,
-                  )),
-            ),
+            // ElevatedButton(
+            //   onPressed: () {},
+            //   child: Text(
+            //     'Upgrade',
+            //     style: TextStyle(
+            //       color: Colors.grey,
+            //       fontWeight: FontWeight.w500,
+            //     ),
+            //   ),
+            //   style: ElevatedButton.styleFrom(
+            //       primary: Color(0xFF252525),
+            //       textStyle:
+            //           TextStyle(fontWeight: FontWeight.w400, fontSize: 12),
+            //       padding: EdgeInsets.symmetric(
+            //         vertical: 14,
+            //         horizontal: 16,
+            //       )),
+            // ),
           ],
         ),
       ),

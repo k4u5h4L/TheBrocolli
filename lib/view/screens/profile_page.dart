@@ -44,8 +44,8 @@ class ProfilePage extends StatelessWidget {
             color: Colors.black,
             alignment: Alignment.topCenter,
             child: ProfileInfoCard(
-              username: 'Shasy Re',
-              subscriptionStatus: 'Basic Account',
+              username: firebaseUser != null ? firebaseUser.email : '',
+              subscriptionStatus: '',
             ),
           ),
           // Section 2 - Banner
@@ -116,135 +116,135 @@ class ProfilePage extends StatelessWidget {
               ),
             ),
           ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                // Menu title - Account Settings
-                _buildMenuTitle(context, title: 'Account settings'),
-                _buildMenuTile(
-                  context,
-                  title: 'Your Profile',
-                  desciption: 'Edit and view profile info.',
-                  icon: SvgPicture.asset(
-                    'assets/icons/Profile.svg',
-                    color: Colors.black,
-                  ),
-                ),
-                _buildMenuTile(
-                  context,
-                  title: 'My Subscription',
-                  desciption: 'Customize your subscription.',
-                  icon: SvgPicture.asset(
-                    'assets/icons/Ticket Star.svg',
-                    color: Colors.black,
-                  ),
-                ),
-                // Menu title - Account Settings
-                _buildMenuTitle(context, title: 'App Settings'),
-                _buildMenuTile(
-                  context,
-                  title: 'Notification',
-                  desciption: 'Edit and view profile info.',
-                  icon: SvgPicture.asset(
-                    'assets/icons/Notification.svg',
-                    color: Colors.black,
-                  ),
-                ),
-                _buildMenuTile(
-                  context,
-                  title: 'My Time',
-                  desciption: 'Customize your subscription.',
-                  icon: SvgPicture.asset(
-                    'assets/icons/Time Circle.svg',
-                    color: Colors.black,
-                  ),
-                ),
-                _buildMenuTile(
-                  context,
-                  title: 'Setting',
-                  desciption: 'Customize your subscription.',
-                  icon: SvgPicture.asset(
-                    'assets/icons/Setting.svg',
-                    color: Colors.black,
-                  ),
-                ),
-              ],
-            ),
-          )
+          // Container(
+          //   width: MediaQuery.of(context).size.width,
+          //   color: Colors.white,
+          //   child: Column(
+          //     mainAxisAlignment: MainAxisAlignment.start,
+          //     crossAxisAlignment: CrossAxisAlignment.start,
+          //     children: [
+          //       // Menu title - Account Settings
+          //       _buildMenuTitle(context, title: 'Account settings'),
+          //       _buildMenuTile(
+          //         context,
+          //         title: 'Your Profile',
+          //         desciption: 'Edit and view profile info.',
+          //         icon: SvgPicture.asset(
+          //           'assets/icons/Profile.svg',
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //       _buildMenuTile(
+          //         context,
+          //         title: 'My Subscription',
+          //         desciption: 'Customize your subscription.',
+          //         icon: SvgPicture.asset(
+          //           'assets/icons/Ticket Star.svg',
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //       // Menu title - Account Settings
+          //       _buildMenuTitle(context, title: 'App Settings'),
+          //       _buildMenuTile(
+          //         context,
+          //         title: 'Notification',
+          //         desciption: 'Edit and view profile info.',
+          //         icon: SvgPicture.asset(
+          //           'assets/icons/Notification.svg',
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //       _buildMenuTile(
+          //         context,
+          //         title: 'My Time',
+          //         desciption: 'Customize your subscription.',
+          //         icon: SvgPicture.asset(
+          //           'assets/icons/Time Circle.svg',
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //       _buildMenuTile(
+          //         context,
+          //         title: 'Setting',
+          //         desciption: 'Customize your subscription.',
+          //         icon: SvgPicture.asset(
+          //           'assets/icons/Setting.svg',
+          //           color: Colors.black,
+          //         ),
+          //       ),
+          //     ],
+          //   ),
+          // )
         ],
       ),
     );
   }
 
-  Container _buildMenuTitle(BuildContext context, {@required String title}) {
-    return Container(
-      width: MediaQuery.of(context).size.width,
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      margin: EdgeInsets.only(bottom: 10, top: 15),
-      child: Text(
-        title,
-        style: TextStyle(
-            fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
-      ),
-    );
-  }
+  // Container _buildMenuTitle(BuildContext context, {@required String title}) {
+  //   return Container(
+  //     width: MediaQuery.of(context).size.width,
+  //     padding: EdgeInsets.symmetric(horizontal: 20),
+  //     margin: EdgeInsets.only(bottom: 10, top: 15),
+  //     child: Text(
+  //       title,
+  //       style: TextStyle(
+  //           fontSize: 16, fontWeight: FontWeight.w600, fontFamily: 'inter'),
+  //     ),
+  //   );
+  // }
 
-  Widget _buildMenuTile(BuildContext context,
-      {@required String title,
-      @required String desciption,
-      Function onTap,
-      Widget icon}) {
-    return InkWell(
-      onTap: onTap,
-      child: Container(
-        height: 75,
-        width: MediaQuery.of(context).size.width,
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        color: Colors.white,
-        child: Row(
-          children: [
-            Container(
-              width: 45,
-              height: 45,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(100),
-                  color: Color(0xFFE5E5E5)),
-              child: Center(child: icon),
-            ),
-            Expanded(
-              child: Container(
-                padding: EdgeInsets.only(left: 15),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      title,
-                      style: TextStyle(
-                          fontFamily: 'inter', fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      desciption,
-                      style: TextStyle(color: Colors.grey, fontSize: 12),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-            Icon(
-              Icons.arrow_forward_ios,
-              color: Colors.grey[350],
-            )
-          ],
-        ),
-      ),
-    );
-  }
+  // Widget _buildMenuTile(BuildContext context,
+  //     {@required String title,
+  //     @required String desciption,
+  //     Function onTap,
+  //     Widget icon}) {
+  //   return InkWell(
+  //     onTap: onTap,
+  //     child: Container(
+  //       height: 75,
+  //       width: MediaQuery.of(context).size.width,
+  //       padding: EdgeInsets.symmetric(horizontal: 20),
+  //       color: Colors.white,
+  //       child: Row(
+  //         children: [
+  //           Container(
+  //             width: 45,
+  //             height: 45,
+  //             decoration: BoxDecoration(
+  //                 borderRadius: BorderRadius.circular(100),
+  //                 color: Color(0xFFE5E5E5)),
+  //             child: Center(child: icon),
+  //           ),
+  //           Expanded(
+  //             child: Container(
+  //               padding: EdgeInsets.only(left: 15),
+  //               child: Column(
+  //                 crossAxisAlignment: CrossAxisAlignment.start,
+  //                 mainAxisAlignment: MainAxisAlignment.center,
+  //                 children: [
+  //                   Text(
+  //                     title,
+  //                     style: TextStyle(
+  //                         fontFamily: 'inter', fontWeight: FontWeight.w500),
+  //                   ),
+  //                   SizedBox(
+  //                     height: 4,
+  //                   ),
+  //                   Text(
+  //                     desciption,
+  //                     style: TextStyle(color: Colors.grey, fontSize: 12),
+  //                   ),
+  //                 ],
+  //               ),
+  //             ),
+  //           ),
+  //           Icon(
+  //             Icons.arrow_forward_ios,
+  //             color: Colors.grey[350],
+  //           )
+  //         ],
+  //       ),
+  //     ),
+  //   );
+  // }
 }
