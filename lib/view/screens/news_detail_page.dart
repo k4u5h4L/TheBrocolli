@@ -17,22 +17,26 @@ class NewsDetailPage extends StatelessWidget {
           },
         ),
         onPressedLeading: () {},
-        title: SvgPicture.asset('assets/icons/appname.svg'),
+        // title: SvgPicture.asset('assets/icons/appname.svg'),
+        title: Text(
+          'TheBrocolli',
+          style: TextStyle(color: Colors.white, fontSize: 20),
+        ),
         actions: [
-          IconButton(
-            onPressed: () {},
-            icon: Icon(
-              Icons.share_outlined,
-              color: Colors.white.withOpacity(0.5),
-            ),
-          ),
-          IconButton(
-            onPressed: () {},
-            icon: SvgPicture.asset(
-              'assets/icons/Bookmark.svg',
-              color: Colors.white.withOpacity(0.5),
-            ),
-          ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: Icon(
+          //     Icons.share_outlined,
+          //     color: Colors.white.withOpacity(0.5),
+          //   ),
+          // ),
+          // IconButton(
+          //   onPressed: () {},
+          //   icon: SvgPicture.asset(
+          //     'assets/icons/Bookmark.svg',
+          //     color: Colors.white.withOpacity(0.5),
+          //   ),
+          // ),
         ],
       ),
       body: ListView(
@@ -59,18 +63,27 @@ class NewsDetailPage extends StatelessWidget {
               children: [
                 Text(
                   '${data.date} | ${data.author}.',
-                  style: TextStyle(color: Colors.black.withOpacity(0.6), fontSize: 12),
+                  style: TextStyle(
+                      color: Colors.black.withOpacity(0.6), fontSize: 12),
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 12, bottom: 20),
                   child: Text(
                     data.title,
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.w600, height: 150 / 100, fontFamily: 'inter'),
+                    style: TextStyle(
+                        fontSize: 20,
+                        fontWeight: FontWeight.w600,
+                        height: 150 / 100,
+                        fontFamily: 'inter'),
                   ),
                 ),
                 Text(
                   data.description,
-                  style: TextStyle(color: Colors.black.withOpacity(0.8), fontSize: 14, height: 150 / 100, fontWeight: FontWeight.w500),
+                  style: TextStyle(
+                      color: Colors.black.withOpacity(0.8),
+                      fontSize: 14,
+                      height: 150 / 100,
+                      fontWeight: FontWeight.w500),
                 ),
               ],
             ),

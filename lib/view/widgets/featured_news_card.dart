@@ -12,7 +12,8 @@ class FeaturedNewsCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(SlidePageRoute(child: NewsDetailPage(data: data)));
+        Navigator.of(context)
+            .push(SlidePageRoute(child: NewsDetailPage(data: data)));
       },
       child: Container(
         height: 320,
@@ -37,9 +38,9 @@ class FeaturedNewsCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.end,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TagCard(
-                    tagName: 'Movie',
-                  ),
+                  // TagCard(
+                  //   tagName: 'Movie',
+                  // ),
                   Container(
                     margin: EdgeInsets.only(top: 14, bottom: 12),
                     child: Text(
@@ -56,7 +57,7 @@ class FeaturedNewsCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    'Jul 14, 2021 11:22am',
+                    data.date,
                     style: TextStyle(fontSize: 12, color: Colors.white),
                   )
                 ],
