@@ -10,7 +10,8 @@ class NewsTile extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () {
-        Navigator.of(context).push(SlidePageRoute(child: NewsDetailPage(data: data)));
+        Navigator.of(context)
+            .push(SlidePageRoute(child: NewsDetailPage(data: data)));
       },
       child: Container(
         height: 84,
@@ -25,7 +26,13 @@ class NewsTile extends StatelessWidget {
               decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(5),
-                image: DecorationImage(image: AssetImage(data.photo), fit: BoxFit.cover),
+                image: DecorationImage(
+                    image: data.photo.startsWith("http")
+                        ? Image.network(
+                            data.photo,
+                          )
+                        : AssetImage(data.photo),
+                    fit: BoxFit.cover),
               ),
             ),
             Container(

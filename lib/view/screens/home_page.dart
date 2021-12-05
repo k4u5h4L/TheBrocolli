@@ -21,10 +21,10 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   ScrollController _featuredNewsScrollController = ScrollController();
-  List<News> featuredNewsData = NewsHelper.featuredNews;
-  List<News> breakingNewsData = NewsHelper.breakingNews;
+  // List<News> featuredNewsData = NewsHelper.featuredNews;
+  // List<News> breakingNewsData = NewsHelper.breakingNews;
   CollectionReference news = FirebaseFirestore.instance.collection('news');
-  List<News> recomendationNewsData = NewsHelper.recomendationNews;
+  // List<News> recomendationNewsData = NewsHelper.recomendationNews;
 
   // @override
   // void initState() {
@@ -79,7 +79,11 @@ class _HomePageState extends State<HomePage> {
                     builder: (BuildContext context,
                         AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
-                        return Text('Loading...');
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.white,
+                          ),
+                        );
                       }
 
                       List<News> data = [];
@@ -236,7 +240,11 @@ class _HomePageState extends State<HomePage> {
                     builder: (BuildContext context,
                         AsyncSnapshot<QuerySnapshot> snapshot) {
                       if (!snapshot.hasData) {
-                        return Text('Loading...');
+                        return Center(
+                          child: CircularProgressIndicator(
+                            color: Colors.black,
+                          ),
+                        );
                       }
 
                       // List<Map<String, dynamic>> data =
