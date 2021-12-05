@@ -59,30 +59,30 @@ class _SearchAppBarState extends State<SearchAppBar> {
           ),
         ),
       ),
-      actions: [
-        // The search button will appear if the input is not empty
-        (widget.searchInputController.text.isEmpty)
-            ? ElevatedButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                child: Text('cancel'),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
-                  textStyle: TextStyle(fontWeight: FontWeight.w400),
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-              )
-            : ElevatedButton(
-                onPressed: widget.searchPressed,
-                child: Text('Search'),
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.black,
-                  textStyle: TextStyle(fontWeight: FontWeight.w400),
-                  padding: EdgeInsets.symmetric(horizontal: 20),
-                ),
-              ),
-      ],
+      // actions: [
+      //   // The search button will appear if the input is not empty
+      //   (widget.searchInputController.text.isEmpty)
+      //       ? ElevatedButton(
+      //           onPressed: () {
+      //             Navigator.pop(context);
+      //           },
+      //           child: Text('cancel'),
+      //           style: ElevatedButton.styleFrom(
+      //             primary: Colors.black,
+      //             textStyle: TextStyle(fontWeight: FontWeight.w400),
+      //             padding: EdgeInsets.symmetric(horizontal: 20),
+      //           ),
+      //         )
+      //       : ElevatedButton(
+      //           onPressed: widget.searchPressed,
+      //           child: Text('Search'),
+      //           style: ElevatedButton.styleFrom(
+      //             primary: Colors.black,
+      //             textStyle: TextStyle(fontWeight: FontWeight.w400),
+      //             padding: EdgeInsets.symmetric(horizontal: 20),
+      //           ),
+      //         ),
+      // ],
     );
   }
 }
