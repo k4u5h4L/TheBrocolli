@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:provider/provider.dart';
+
 import 'package:thebrocolli/route/slide_page_route.dart';
 import 'package:thebrocolli/view/screens/profile_page.dart';
 
@@ -11,6 +15,8 @@ class CustomSideBar extends StatefulWidget {
 class _CustomSideBarState extends State<CustomSideBar> {
   @override
   Widget build(BuildContext context) {
+    final firebaseUser = context.watch<User>();
+
     return Drawer(
       child: Container(
         color: Colors.black,
@@ -21,7 +27,8 @@ class _CustomSideBarState extends State<CustomSideBar> {
             GestureDetector(
               onTap: () {
                 Navigator.of(context).pop();
-                Navigator.of(context).push(SlidePageRoute(child: ProfilePage()));
+                Navigator.of(context)
+                    .push(SlidePageRoute(child: ProfilePage()));
               },
               child: Container(
                 margin: EdgeInsets.only(top: 30),
@@ -32,9 +39,18 @@ class _CustomSideBarState extends State<CustomSideBar> {
                       width: 48,
                       height: 48,
                       margin: EdgeInsets.only(right: 15),
-                      decoration: BoxDecoration(color: Colors.grey, borderRadius: BorderRadius.circular(100)),
-                      child: Image.asset(
-                        'assets/images/pp.png',
+                      decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(100)),
+                      // child: Image.asset(
+                      //   'assets/icons/Profile.svg',
+                      //   width: 48,
+                      //   height: 48,
+                      //   fit: BoxFit.cover,
+                      // ),
+                      child: SvgPicture.asset(
+                        'assets/icons/Profile.svg',
+                        color: Colors.black,
                         width: 48,
                         height: 48,
                         fit: BoxFit.cover,
@@ -46,16 +62,17 @@ class _CustomSideBarState extends State<CustomSideBar> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            'Shasy Rhe',
+                            firebaseUser != null ? firebaseUser.email : "",
                             style: TextStyle(color: Colors.white, fontSize: 16),
                           ),
                           SizedBox(
                             height: 4,
                           ),
-                          Text(
-                            'Basic Account.',
-                            style: TextStyle(color: Colors.white.withOpacity(0.35)),
-                          )
+                          // Text(
+                          //   'Basic Account.',
+                          //   style: TextStyle(
+                          //       color: Colors.white.withOpacity(0.35)),
+                          // )
                         ],
                       ),
                     )
@@ -63,64 +80,67 @@ class _CustomSideBarState extends State<CustomSideBar> {
                 ),
               ),
             ),
-            Divider(
-              thickness: 0.5,
-              color: Color(0xFF606060),
-            ),
-            _buildListTile(
-              context,
-              iconAssetPath: 'assets/icons/Arrow - Up Square.svg',
-              title: 'Upgrade Plan',
-              onTap: () {},
-            ),
-            _buildListTile(
-              context,
-              iconAssetPath: 'assets/icons/Notification.svg',
-              title: 'Notification',
-              onTap: () {},
-            ),
-            _buildListTile(
-              context,
-              iconAssetPath: 'assets/icons/Time Circle.svg',
-              title: 'Your Activity',
-              onTap: () {},
-            ),
-            _buildListTile(
-              context,
-              iconAssetPath: 'assets/icons/Setting.svg',
-              title: 'Settings',
-              onTap: () {},
-            ),
+            // Divider(
+            //   thickness: 0.5,
+            //   color: Color(0xFF606060),
+            // ),
+            // _buildListTile(
+            //   context,
+            //   iconAssetPath: 'assets/icons/Arrow - Up Square.svg',
+            //   title: 'Upgrade Plan',
+            //   onTap: () {},
+            // ),
+            // _buildListTile(
+            //   context,
+            //   iconAssetPath: 'assets/icons/Notification.svg',
+            //   title: 'Notification',
+            //   onTap: () {},
+            // ),
+            // _buildListTile(
+            //   context,
+            //   iconAssetPath: 'assets/icons/Time Circle.svg',
+            //   title: 'Your Activity',
+            //   onTap: () {},
+            // ),
+            // _buildListTile(
+            //   context,
+            //   iconAssetPath: 'assets/icons/Setting.svg',
+            //   title: 'Settings',
+            //   onTap: () {},
+            // ),
           ],
         ),
       ),
     );
   }
 
-  Widget _buildListTile(BuildContext context, {@required String title, @required String iconAssetPath, @required Function onTap}) {
-    return Container(
-      color: Colors.black,
-      child: ListTileTheme(
-        contentPadding: EdgeInsets.only(left: 24, top: 10, bottom: 10),
-        minLeadingWidth: 12,
-        tileColor: Colors.white.withOpacity(0.8),
-        selectedTileColor: Colors.white,
-        selectedColor: Colors.white,
-        textColor: Colors.white.withOpacity(0.8),
-        child: ListTile(
-          leading: SvgPicture.asset(
-            iconAssetPath,
-            height: 24,
-            width: 24,
-            color: Colors.white,
-          ),
-          title: Text(
-            title,
-            style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
-          ),
-          onTap: onTap,
-        ),
-      ),
-    );
-  }
+  // Widget _buildListTile(BuildContext context,
+  //     {@required String title,
+  //     @required String iconAssetPath,
+  //     @required Function onTap}) {
+  //   return Container(
+  //     color: Colors.black,
+  //     child: ListTileTheme(
+  //       contentPadding: EdgeInsets.only(left: 24, top: 10, bottom: 10),
+  //       minLeadingWidth: 12,
+  //       tileColor: Colors.white.withOpacity(0.8),
+  //       selectedTileColor: Colors.white,
+  //       selectedColor: Colors.white,
+  //       textColor: Colors.white.withOpacity(0.8),
+  //       child: ListTile(
+  //         leading: SvgPicture.asset(
+  //           iconAssetPath,
+  //           height: 24,
+  //           width: 24,
+  //           color: Colors.white,
+  //         ),
+  //         title: Text(
+  //           title,
+  //           style: TextStyle(fontSize: 16, fontWeight: FontWeight.w600),
+  //         ),
+  //         onTap: onTap,
+  //       ),
+  //     ),
+  //   );
+  // }
 }
