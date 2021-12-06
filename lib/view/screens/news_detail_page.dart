@@ -49,7 +49,9 @@ class NewsDetailPage extends StatelessWidget {
             decoration: BoxDecoration(
               color: Colors.grey,
               image: DecorationImage(
-                image: AssetImage(data.photo),
+                image: data.photo.startsWith("http")
+                    ? NetworkImage(data.photo)
+                    : AssetImage(data.photo),
                 fit: BoxFit.cover,
               ),
             ),

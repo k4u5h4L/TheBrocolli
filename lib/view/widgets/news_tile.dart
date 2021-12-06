@@ -28,7 +28,7 @@ class NewsTile extends StatelessWidget {
                 borderRadius: BorderRadius.circular(5),
                 image: DecorationImage(
                     image: data.photo.startsWith("http")
-                        ? Image.network(
+                        ? NetworkImage(
                             data.photo,
                           )
                         : AssetImage(data.photo),

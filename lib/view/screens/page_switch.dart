@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:thebrocolli/view/screens/bookmarks_page.dart';
+import 'package:thebrocolli/view/screens/upload_page.dart';
 import 'package:thebrocolli/view/screens/home_page.dart';
 import 'package:thebrocolli/view/screens/discover_page.dart';
 import 'package:thebrocolli/view/widgets/custom_bottom_navigation_bar.dart';
@@ -25,7 +25,7 @@ class _PageSwitchState extends State<PageSwitch> {
       body: [
         HomePage(),
         DiscoverPage(),
-        BookmarkPage(),
+        UploadPage(),
       ][_selectedIndex],
       drawer: CustomSideBar(),
       bottomNavigationBar: CustomBottomNavigationBar(

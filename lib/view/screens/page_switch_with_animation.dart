@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:thebrocolli/view/screens/bookmarks_page.dart';
+import 'package:thebrocolli/view/screens/upload_page.dart';
 import 'package:thebrocolli/view/screens/home_page.dart';
 import 'package:thebrocolli/view/screens/discover_page.dart';
 import 'package:thebrocolli/view/widgets/custom_bottom_navigation_bar.dart';
 
 class PageSwitchWithAnimation extends StatefulWidget {
   @override
-  _PageSwitchWithAnimationState createState() => _PageSwitchWithAnimationState();
+  _PageSwitchWithAnimationState createState() =>
+      _PageSwitchWithAnimationState();
 }
 
 class _PageSwitchWithAnimationState extends State<PageSwitchWithAnimation> {
@@ -22,7 +23,8 @@ class _PageSwitchWithAnimationState extends State<PageSwitchWithAnimation> {
   _onItemTapped(int index) {
     setState(() {
       _selectedIndex = index;
-      _pageSwitchController.animateToPage(index, duration: Duration(milliseconds: 500), curve: Curves.easeOut);
+      _pageSwitchController.animateToPage(index,
+          duration: Duration(milliseconds: 500), curve: Curves.easeOut);
     });
   }
 
@@ -39,7 +41,7 @@ class _PageSwitchWithAnimationState extends State<PageSwitchWithAnimation> {
         children: [
           HomePage(),
           DiscoverPage(),
-          BookmarkPage(),
+          UploadPage(),
         ],
       ),
       bottomNavigationBar: CustomBottomNavigationBar(

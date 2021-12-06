@@ -143,19 +143,19 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
             ),
-            Container(
-              margin: EdgeInsets.only(top: 16),
-              width: MediaQuery.of(context).size.width,
-              alignment: Alignment.topCenter,
-              child: TextButton(
-                onPressed: () {},
-                child: Text('Forgot your password?'),
-                style: TextButton.styleFrom(
-                  primary: Colors.white.withOpacity(0.65),
-                  textStyle: TextStyle(fontWeight: FontWeight.w400),
-                ),
-              ),
-            ),
+            // Container(
+            //   margin: EdgeInsets.only(top: 16),
+            //   width: MediaQuery.of(context).size.width,
+            //   alignment: Alignment.topCenter,
+            //   child: TextButton(
+            //     onPressed: () {},
+            //     child: Text('Forgot your password?'),
+            //     style: TextButton.styleFrom(
+            //       primary: Colors.white.withOpacity(0.65),
+            //       textStyle: TextStyle(fontWeight: FontWeight.w400),
+            //     ),
+            //   ),
+            // ),
           ],
         ),
       ),
