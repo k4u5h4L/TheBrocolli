@@ -104,6 +104,7 @@ class _UploadPageState extends State<UploadPage> with TickerProviderStateMixin {
         //     Navigator.of(context).pop();
         //   },
         // ),
+        leading: Text(''),
       ),
       body: GestureDetector(
         onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
