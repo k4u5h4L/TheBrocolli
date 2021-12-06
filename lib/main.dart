@@ -51,14 +51,20 @@ class AuthenticationWrapper extends StatelessWidget {
   Widget build(BuildContext context) {
     final firebaseUser = context.watch<User>();
 
+    // if (firebaseUser != null) {
+    //   print(firebaseUser.email);
+
+    //   return HomePage();
+    // } else {
+    //   print("Not Authenticated");
+
+    //   return WelcomePage();
+    // }
+
     if (firebaseUser != null) {
-      print(firebaseUser.email);
-
-      return HomePage();
-    } else {
-      print("Not Authenticated");
-
-      return WelcomePage();
+      context.read<AuthenticationService>().signOut();
     }
+
+    return WelcomePage();
   }
 }

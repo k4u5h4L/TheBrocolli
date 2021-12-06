@@ -24,6 +24,13 @@ class _HomePageState extends State<HomePage> {
   CollectionReference news = FirebaseFirestore.instance.collection('news');
 
   @override
+  void dispose() {
+    print('disposed');
+
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
