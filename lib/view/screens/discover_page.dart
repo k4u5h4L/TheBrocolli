@@ -4,9 +4,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 import 'package:thebrocolli/model/core/news.dart';
-import 'package:thebrocolli/model/core/video_news.dart';
 import 'package:thebrocolli/model/helper/news_helper.dart';
-import 'package:thebrocolli/model/helper/video_news_helper.dart';
 import 'package:thebrocolli/route/slide_page_route.dart';
 import 'package:thebrocolli/view/screens/search_page.dart';
 import 'package:thebrocolli/view/widgets/custom_app_bar.dart';
@@ -22,7 +20,6 @@ class _DiscoverPageState extends State<DiscoverPage>
     with TickerProviderStateMixin {
   // ScrollController _featuredVideoNewsCardScrollController = ScrollController();
   TabController _categoryTabController;
-  List<VideoNews> featuredVideoNews = VideoNewsHelper.featuredVideoNews;
   // List<News> allCategoriesNews = NewsHelper.allCategoriesNews;
   CollectionReference news = FirebaseFirestore.instance.collection('news');
 
