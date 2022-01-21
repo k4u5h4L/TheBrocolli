@@ -10,7 +10,6 @@ import 'package:thebrocolli/model/helper/video_news_helper.dart';
 import 'package:thebrocolli/route/slide_page_route.dart';
 import 'package:thebrocolli/view/screens/search_page.dart';
 import 'package:thebrocolli/view/widgets/custom_app_bar.dart';
-import 'package:thebrocolli/view/widgets/featured_video_news_card.dart';
 import 'package:thebrocolli/view/widgets/news_tile.dart';
 import 'package:scroll_indicator/scroll_indicator.dart';
 
@@ -83,69 +82,6 @@ class _DiscoverPageState extends State<DiscoverPage>
         shrinkWrap: true,
         physics: BouncingScrollPhysics(),
         children: [
-          // Section 1 - Featured News Video
-          // Container(
-          //   padding: EdgeInsets.symmetric(vertical: 16),
-          //   width: MediaQuery.of(context).size.width,
-          //   height: 245,
-          //   color: Colors.black,
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.start,
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Container(
-          //         margin: EdgeInsets.only(bottom: 20),
-          //         height: 170,
-          //         child: ListView.separated(
-          //           controller: _featuredVideoNewsCardScrollController,
-          //           padding: EdgeInsets.only(left: 16),
-          //           scrollDirection: Axis.horizontal,
-          //           physics: BouncingScrollPhysics(),
-          //           itemCount: featuredVideoNews.length,
-          //           separatorBuilder: (context, index) {
-          //             return SizedBox(
-          //               width: 10,
-          //             );
-          //           },
-          //           itemBuilder: (context, index) {
-          //             return FeaturedVideoNewsCard(
-          //               data: featuredVideoNews[index],
-          //             );
-          //           },
-          //         ),
-          //       ),
-          //       Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 16),
-          //         child: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //           children: [
-          //             Text(
-          //               'Video News',
-          //               style: TextStyle(
-          //                 color: Colors.white.withOpacity(0.6),
-          //               ),
-          //             ),
-          //             ScrollIndicator(
-          //               scrollController:
-          //                   _featuredVideoNewsCardScrollController,
-          //               height: 6,
-          //               width: 30,
-          //               indicatorWidth: 20,
-          //               decoration: BoxDecoration(
-          //                   borderRadius: BorderRadius.circular(10),
-          //                   color: Colors.white.withOpacity(0.3)),
-          //               indicatorDecoration: BoxDecoration(
-          //                   color: Colors.white.withOpacity(0.2),
-          //                   borderRadius: BorderRadius.circular(10)),
-          //             ),
-          //           ],
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          // ),
-
-          // Section 2 - News Based on Category
           Container(
             padding: EdgeInsets.symmetric(vertical: 8),
             width: MediaQuery.of(context).size.width,

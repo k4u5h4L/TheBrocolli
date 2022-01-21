@@ -142,72 +142,7 @@ class _HomePageState extends State<HomePage> {
               ],
             ),
           ),
-          // section 2 - Breaking News
-          // ###################################################################
-          // Container(
-          //   padding: EdgeInsets.symmetric(vertical: 16),
-          //   width: MediaQuery.of(context).size.width,
-          //   child: Column(
-          //     mainAxisAlignment: MainAxisAlignment.start,
-          //     crossAxisAlignment: CrossAxisAlignment.start,
-          //     children: [
-          //       Padding(
-          //         padding: EdgeInsets.symmetric(horizontal: 16),
-          //         child: Row(
-          //           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          //           children: [
-          //             Text(
-          //               'Breaking News',
-          //               style: TextStyle(
-          //                 fontSize: 20,
-          //                 fontWeight: FontWeight.w600,
-          //                 fontFamily: 'inter',
-          //               ),
-          //             ),
-          //             ElevatedButton(
-          //               onPressed: () {
-          //                 Navigator.of(context)
-          //                     .push(SlidePageRoute(child: BreakingNewsPage()));
-          //               },
-          //               child: Text(
-          //                 'view more',
-          //                 style: TextStyle(
-          //                     color: Colors.black, fontWeight: FontWeight.w400),
-          //               ),
-          //               style: ElevatedButton.styleFrom(
-          //                 primary: Colors.transparent,
-          //                 shadowColor: Colors.transparent,
-          //                 onPrimary: Colors.grey,
-          //               ),
-          //             ),
-          //           ],
-          //         ),
-          //       ),
-          //       Container(
-          //         height: 200,
-          //         margin: EdgeInsets.only(top: 6),
-          //         child: ListView.separated(
-          //           scrollDirection: Axis.horizontal,
-          //           shrinkWrap: true,
-          //           padding: EdgeInsets.symmetric(horizontal: 16),
-          //           itemCount: breakingNewsData.length,
-          //           physics: BouncingScrollPhysics(),
-          //           separatorBuilder: (context, index) {
-          //             return SizedBox(
-          //               width: 13,
-          //             );
-          //           },
-          //           itemBuilder: (context, index) {
-          //             return BreakingNewsCard(
-          //               data: breakingNewsData[index],
-          //             );
-          //           },
-          //         ),
-          //       )
-          //     ],
-          //   ),
-          // ),
-          // ###################################################################
+
           // section 3 - Based on Your Reading History
           Container(
             width: MediaQuery.of(context).size.width,
